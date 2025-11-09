@@ -2,6 +2,9 @@
 require_once("./php/is_logged_in.php");
 require_once("./php/db_connect.php");
 require_once("./php/logout.php");
+include_once("./php/all_biodata.php");
+include_once("./php/delete_user.php");
+$base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to change with real domain
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +24,9 @@ require_once("./php/logout.php");
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- sweet alert cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -50,96 +56,33 @@ require_once("./php/logout.php");
     <section id="users" class="content-section active">
       <h2>All Users</h2>
       <div class="card-container users-grid">
-        <!-- Example cards -->
-        <div class="user-card">
+        <?php
+        if ($all_users && count($all_users) > 0) {
+          foreach ($all_users as $user) {
+            $created_at = explode(" ", $user["created_at"])[0];
+            $user_image = "$base_img_url" . $user["profile_picture"];
+            echo "
+          <div class='user-card'>
           <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="User" />
-          <h3>John Doe</h3>
-          <p><b>ID:</b> <span>001</span></p>
-          <p><b>Location:</b> <span>Dhaka</span></p>
-          <p><b>Registered:</b> <span>11/11/2025</span></p>
-          <p><b>Status:</b> <span>Active</span></p>
-          <div class="actionButtons">
-            <a href="#" class="status-btn inactive">Inactive</a>
-            <a href="#" class="status-btn active">Active</a>
+            src='$user_image'
+            alt='User' />
+          <h3>{$user["full_name"]}</h3>
+          <p><b>ID:</b> <span>{$user["id"]}</span></p>
+          <p><b>District:</b> <span>{$user["district"]}</span></p>
+          <p><b>Created:</b> <span>{$created_at}</span></p>
+          <p><b>Email:</b> <span><a href='mailto:{$user["user_id"]}' style='color:black; text-decoration:none'>Email</a></span></p>
+          <div class='actionButtons'>
+            <a href='#' onClick={handleUserDelete('{$user["user_id"]}')} class='status-btn inactive'>Delete</a>
           </div>
         </div>
+            
+            ";
+          }
+        }
+
+        ?>
         <!-- Example cards -->
-        <div class="user-card">
-          <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="User" />
-          <h3>John Doe</h3>
-          <p><b>ID:</b> <span>001</span></p>
-          <p><b>Location:</b> <span>Dhaka</span></p>
-          <p><b>Registered:</b> <span>11/11/2025</span></p>
-          <p><b>Status:</b> <span>Active</span></p>
-          <div class="actionButtons">
-            <a href="#" class="status-btn inactive">Inactive</a>
-            <a href="#" class="status-btn active">Active</a>
-          </div>
-        </div>
-        <!-- Example cards -->
-        <div class="user-card">
-          <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="User" />
-          <h3>John Doe</h3>
-          <p><b>ID:</b> <span>001</span></p>
-          <p><b>Location:</b> <span>Dhaka</span></p>
-          <p><b>Registered:</b> <span>11/11/2025</span></p>
-          <p><b>Status:</b> <span>Active</span></p>
-          <div class="actionButtons">
-            <a href="#" class="status-btn inactive">Inactive</a>
-            <a href="#" class="status-btn active">Active</a>
-          </div>
-        </div>
-        <!-- Example cards -->
-        <div class="user-card">
-          <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="User" />
-          <h3>John Doe</h3>
-          <p><b>ID:</b> <span>001</span></p>
-          <p><b>Location:</b> <span>Dhaka</span></p>
-          <p><b>Registered:</b> <span>11/11/2025</span></p>
-          <p><b>Status:</b> <span>Active</span></p>
-          <div class="actionButtons">
-            <a href="#" class="status-btn inactive">Inactive</a>
-            <a href="#" class="status-btn active">Active</a>
-          </div>
-        </div>
-        <!-- Example cards -->
-        <div class="user-card">
-          <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="User" />
-          <h3>John Doe</h3>
-          <p><b>ID:</b> <span>001</span></p>
-          <p><b>Location:</b> <span>Dhaka</span></p>
-          <p><b>Registered:</b> <span>11/11/2025</span></p>
-          <p><b>Status:</b> <span>Active</span></p>
-          <div class="actionButtons">
-            <a href="#" class="status-btn inactive">Inactive</a>
-            <a href="#" class="status-btn active">Active</a>
-          </div>
-        </div>
-        <!-- Example cards -->
-        <div class="user-card">
-          <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="User" />
-          <h3>John Doe</h3>
-          <p><b>ID:</b> <span>001</span></p>
-          <p><b>Location:</b> <span>Dhaka</span></p>
-          <p><b>Registered:</b> <span>11/11/2025</span></p>
-          <p><b>Status:</b> <span>Active</span></p>
-          <div class="actionButtons">
-            <a href="#" class="status-btn inactive">Inactive</a>
-            <a href="#" class="status-btn active">Active</a>
-          </div>
-        </div>
+
       </div>
     </section>
 
@@ -362,7 +305,31 @@ require_once("./php/logout.php");
     </div>
   </div>
 
+
+  <!-- script for delete user -->
+  <script>
+    // handle delete user
+    const handleUserDelete = (id) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setTimeout(() => {
+            window.location.href = `?delete_user=${id}`
+          }, 200);
+
+        }
+      });
+    };
+  </script>
   <script src="admin.js"></script>
+
 </body>
 
 </html>
