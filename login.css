@@ -107,7 +107,11 @@ body {
   color: #888;
   margin-top: 20px;
 }
-
+.credentialError {
+  text-align: center;
+  color: red;
+  font-weight: 600;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -1,0 +1,365 @@
+<?php
+require_once("./php/is_logged_in.php");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css" />
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="logo">
+      <h2><i class="fa-solid fa-user-gear"></i> Admin</h2>
+      <button id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav>
+      <a href="#" class="nav-link active" data-target="users"><i class="fa-solid fa-users"></i> All Users</a>
+      <a href="#" class="nav-link" data-target="biodatas"><i class="fa-solid fa-address-card"></i> All Biodatas</a>
+      <a href="#" class="nav-link" data-target="transactions"><i class="fa-solid fa-credit-card"></i> Transactions</a>
+      <a href="#" class="nav-link" data-target="advertisement"><i class="fa-solid fa-bullhorn"></i> Advertisement</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <header>
+      <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+      <h1>Admin Dashboard</h1>
+    </header>
+
+    <!-- USERS -->
+    <section id="users" class="content-section active">
+      <h2>All Users</h2>
+      <div class="card-container users-grid">
+        <!-- Example cards -->
+        <div class="user-card">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="User" />
+          <h3>John Doe</h3>
+          <p><b>ID:</b> <span>001</span></p>
+          <p><b>Location:</b> <span>Dhaka</span></p>
+          <p><b>Registered:</b> <span>11/11/2025</span></p>
+          <p><b>Status:</b> <span>Active</span></p>
+          <div class="actionButtons">
+            <a href="#" class="status-btn inactive">Inactive</a>
+            <a href="#" class="status-btn active">Active</a>
+          </div>
+        </div>
+        <!-- Example cards -->
+        <div class="user-card">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="User" />
+          <h3>John Doe</h3>
+          <p><b>ID:</b> <span>001</span></p>
+          <p><b>Location:</b> <span>Dhaka</span></p>
+          <p><b>Registered:</b> <span>11/11/2025</span></p>
+          <p><b>Status:</b> <span>Active</span></p>
+          <div class="actionButtons">
+            <a href="#" class="status-btn inactive">Inactive</a>
+            <a href="#" class="status-btn active">Active</a>
+          </div>
+        </div>
+        <!-- Example cards -->
+        <div class="user-card">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="User" />
+          <h3>John Doe</h3>
+          <p><b>ID:</b> <span>001</span></p>
+          <p><b>Location:</b> <span>Dhaka</span></p>
+          <p><b>Registered:</b> <span>11/11/2025</span></p>
+          <p><b>Status:</b> <span>Active</span></p>
+          <div class="actionButtons">
+            <a href="#" class="status-btn inactive">Inactive</a>
+            <a href="#" class="status-btn active">Active</a>
+          </div>
+        </div>
+        <!-- Example cards -->
+        <div class="user-card">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="User" />
+          <h3>John Doe</h3>
+          <p><b>ID:</b> <span>001</span></p>
+          <p><b>Location:</b> <span>Dhaka</span></p>
+          <p><b>Registered:</b> <span>11/11/2025</span></p>
+          <p><b>Status:</b> <span>Active</span></p>
+          <div class="actionButtons">
+            <a href="#" class="status-btn inactive">Inactive</a>
+            <a href="#" class="status-btn active">Active</a>
+          </div>
+        </div>
+        <!-- Example cards -->
+        <div class="user-card">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="User" />
+          <h3>John Doe</h3>
+          <p><b>ID:</b> <span>001</span></p>
+          <p><b>Location:</b> <span>Dhaka</span></p>
+          <p><b>Registered:</b> <span>11/11/2025</span></p>
+          <p><b>Status:</b> <span>Active</span></p>
+          <div class="actionButtons">
+            <a href="#" class="status-btn inactive">Inactive</a>
+            <a href="#" class="status-btn active">Active</a>
+          </div>
+        </div>
+        <!-- Example cards -->
+        <div class="user-card">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="User" />
+          <h3>John Doe</h3>
+          <p><b>ID:</b> <span>001</span></p>
+          <p><b>Location:</b> <span>Dhaka</span></p>
+          <p><b>Registered:</b> <span>11/11/2025</span></p>
+          <p><b>Status:</b> <span>Active</span></p>
+          <div class="actionButtons">
+            <a href="#" class="status-btn inactive">Inactive</a>
+            <a href="#" class="status-btn active">Active</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIODATAS -->
+    <section id="biodatas" class="content-section">
+      <h2>All Biodatas</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Marital Status</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>John Doe</td>
+            <td>Male</td>
+            <td>28</td>
+            <td>Married</td>
+            <td>Active</td>
+            <td>
+              <a href="#" class="status-btn active">Active</a>
+              <a href="#" class="status-btn inactive">Inactive</a>
+            </td>
+            <td>
+              <button class="view-btn" data-name="John Doe">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- TRANSACTIONS -->
+    <section id="transactions" class="content-section">
+      <h2>Transactions</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Txn ID</th>
+            <th>Payment For</th>
+            <th>Interested ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Merchant Invoice</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>338838</td>
+            <td>Profile</td>
+            <td>1</td>
+            <td>Amount</td>
+            <td>11/11/2025</td>
+            <td>Success</td>
+            <td>MV-441544</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ADVERTISEMENT -->
+    <section id="advertisement" class="content-section">
+      <h2>Advertisement</h2>
+      <form class="ad-form">
+        <h3>Add New Advertisement</h3>
+        <input type="text" placeholder="Ad Title" required />
+        <input type="url" placeholder="Ad Link" required />
+        <input type="file" required />
+        <button type="submit">Add Advertisement</button>
+      </form>
+      <div class="ads-section">
+        <div class="ad-card">
+          <a href="">
+            <img
+              src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg"
+              alt="Ad" /></a>
+          <p>Ad Title: Winter Offer</p>
+          <div class="advertiseInactive">
+            <a href="#" class="status-btn inactive">Inactive</a>
+          </div>
+        </div>
+        <div class="ad-card">
+          <a href="">
+            <img
+              src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg"
+              alt="Ad" /></a>
+          <p>Ad Title: Winter Offer</p>
+          <div class="advertiseInactive">
+            <a href="#" class="status-btn inactive">Inactive</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <!-- PERSON DETAILS MODAL -->
+  <div id="modal">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="person-details">
+        <!-- Profile Header -->
+        <div class="profile-header">
+          <img
+            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+            alt="Profile" />
+          <div class="profile-basic">
+            <h2>John Doe <span class="id">ID: 001</span></h2>
+            <p><i class="fas fa-map-marker-alt"></i> Dhanmondi, Dhaka</p>
+          </div>
+        </div>
+
+        <div class="personDetailsLowerContainer">
+          <div class="pdlcleft">
+            <!-- Image Gallery -->
+            <div class="personImageGallery">
+              <div class="pigMain">
+                <img
+                  id="mainImageProfile"
+                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+                  alt="main image" />
+              </div>
+
+              <div class="pigsub">
+                <img
+                  onclick="handleProfileImg(this)"
+                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-olly-733872.jpg"
+                  alt="subImage" />
+                <img
+                  onclick="handleProfileImg(this)"
+                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-vinicius-wiesehofer-289347-1130626.jpg"
+                  alt="subImage" />
+                <img
+                  onclick="handleProfileImg(this)"
+                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-pixabay-247322.jpg"
+                  alt="subImage" />
+              </div>
+            </div>
+
+            <!-- Basic Details -->
+            <div class="info-section">
+              <h3><i class="fas fa-user"></i> Basic Details</h3>
+              <ul>
+                <li><strong>Full Name:</strong> John Doe</li>
+                <li><strong>Age:</strong> 28 Years</li>
+                <li><strong>Height:</strong> 5'8"</li>
+                <li><strong>Gender:</strong> Male</li>
+                <li><strong>Marital Status:</strong> Single</li>
+                <li>
+                  <strong>Father's Name:</strong> Abdur Rahman
+                  <span>(Alive)</span>
+                </li>
+                <li>
+                  <strong>Mother's Name:</strong> Fatema Begum
+                  <span>(Alive)</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Professional Info -->
+            <div class="info-section">
+              <h3>
+                <i class="fas fa-briefcase"></i> Professional Information
+              </h3>
+              <ul>
+                <li><strong>Education:</strong> B.Sc in CSE</li>
+                <li><strong>Profession:</strong> Software Engineer</li>
+                <li><strong>Monthly Income:</strong> 50,000৳</li>
+              </ul>
+            </div>
+
+            <!-- Family Details -->
+            <div class="info-section">
+              <h3><i class="fas fa-users"></i> Family Details</h3>
+              <ul>
+                <li><strong>Siblings:</strong> 2</li>
+                <li><strong>Position Among Siblings:</strong> 1st</li>
+              </ul>
+            </div>
+
+            <!-- Quick Intro -->
+            <div class="info-section">
+              <h3><i class="fas fa-id-card"></i> Overview</h3>
+              <p>Name: John Doe, Age: 28 Years</p>
+              <p>Education: B.Sc in CSE | Profession: Software Engineer</p>
+              <p>Height: 5'8" | Skin Color: Fair</p>
+              <p>
+                <strong>A Few Lines About John Doe:</strong> A hardworking,
+                honest individual seeking a life partner.
+              </p>
+            </div>
+          </div>
+
+          <div class="pdlcright">
+            <div class="info-section">
+              <h3><i class="fas fa-phone"></i> Contact Details</h3>
+              <ul>
+                <li><strong>Phone:</strong> +8801318195591</li>
+                <li><strong>Email:</strong> johndoe@mail.com</li>
+                <li><strong>Address:</strong> Dhanmondi, Dhaka</li>
+                <li><strong>District:</strong> Dhaka</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>
