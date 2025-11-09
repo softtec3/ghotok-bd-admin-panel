@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="logo">
+        <h2><i class="fa-solid fa-user-gear"></i> Admin</h2>
+        <button id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <nav>
+        <a href="#" class="nav-link active" data-target="users"
+          ><i class="fa-solid fa-users"></i> All Users</a
+        >
+        <a href="#" class="nav-link" data-target="biodatas"
+          ><i class="fa-solid fa-address-card"></i> All Biodatas</a
+        >
+        <a href="#" class="nav-link" data-target="transactions"
+          ><i class="fa-solid fa-credit-card"></i> Transactions</a
+        >
+        <a href="#" class="nav-link" data-target="advertisement"
+          ><i class="fa-solid fa-bullhorn"></i> Advertisement</a
+        >
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <header>
+        <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <h1>Admin Dashboard</h1>
+      </header>
+
+      <!-- USERS -->
+      <section id="users" class="content-section active">
+        <h2>All Users</h2>
+        <div class="card-container users-grid">
+          <!-- Example cards -->
+          <div class="user-card">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="User"
+            />
+            <h3>John Doe</h3>
+            <p><b>ID:</b> <span>001</span></p>
+            <p><b>Location:</b> <span>Dhaka</span></p>
+            <p><b>Registered:</b> <span>11/11/2025</span></p>
+            <p><b>Status:</b> <span>Active</span></p>
+            <div class="actionButtons">
+              <a href="#" class="status-btn inactive">Inactive</a>
+              <a href="#" class="status-btn active">Active</a>
+            </div>
+          </div>
+          <!-- Example cards -->
+          <div class="user-card">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="User"
+            />
+            <h3>John Doe</h3>
+            <p><b>ID:</b> <span>001</span></p>
+            <p><b>Location:</b> <span>Dhaka</span></p>
+            <p><b>Registered:</b> <span>11/11/2025</span></p>
+            <p><b>Status:</b> <span>Active</span></p>
+            <div class="actionButtons">
+              <a href="#" class="status-btn inactive">Inactive</a>
+              <a href="#" class="status-btn active">Active</a>
+            </div>
+          </div>
+          <!-- Example cards -->
+          <div class="user-card">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="User"
+            />
+            <h3>John Doe</h3>
+            <p><b>ID:</b> <span>001</span></p>
+            <p><b>Location:</b> <span>Dhaka</span></p>
+            <p><b>Registered:</b> <span>11/11/2025</span></p>
+            <p><b>Status:</b> <span>Active</span></p>
+            <div class="actionButtons">
+              <a href="#" class="status-btn inactive">Inactive</a>
+              <a href="#" class="status-btn active">Active</a>
+            </div>
+          </div>
+          <!-- Example cards -->
+          <div class="user-card">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="User"
+            />
+            <h3>John Doe</h3>
+            <p><b>ID:</b> <span>001</span></p>
+            <p><b>Location:</b> <span>Dhaka</span></p>
+            <p><b>Registered:</b> <span>11/11/2025</span></p>
+            <p><b>Status:</b> <span>Active</span></p>
+            <div class="actionButtons">
+              <a href="#" class="status-btn inactive">Inactive</a>
+              <a href="#" class="status-btn active">Active</a>
+            </div>
+          </div>
+          <!-- Example cards -->
+          <div class="user-card">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="User"
+            />
+            <h3>John Doe</h3>
+            <p><b>ID:</b> <span>001</span></p>
+            <p><b>Location:</b> <span>Dhaka</span></p>
+            <p><b>Registered:</b> <span>11/11/2025</span></p>
+            <p><b>Status:</b> <span>Active</span></p>
+            <div class="actionButtons">
+              <a href="#" class="status-btn inactive">Inactive</a>
+              <a href="#" class="status-btn active">Active</a>
+            </div>
+          </div>
+          <!-- Example cards -->
+          <div class="user-card">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="User"
+            />
+            <h3>John Doe</h3>
+            <p><b>ID:</b> <span>001</span></p>
+            <p><b>Location:</b> <span>Dhaka</span></p>
+            <p><b>Registered:</b> <span>11/11/2025</span></p>
+            <p><b>Status:</b> <span>Active</span></p>
+            <div class="actionButtons">
+              <a href="#" class="status-btn inactive">Inactive</a>
+              <a href="#" class="status-btn active">Active</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BIODATAS -->
+      <section id="biodatas" class="content-section">
+        <h2>All Biodatas</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>John Doe</td>
+              <td>Male</td>
+              <td>28</td>
+              <td><a href="#" class="status-btn active">Active</a></td>
+              <td>
+                <button class="view-btn" data-name="John Doe">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Jane Smith</td>
+              <td>Female</td>
+              <td>25</td>
+              <td><a href="#" class="status-btn inactive">Inactive</a></td>
+              <td>
+                <button class="view-btn" data-name="Jane Smith">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- TRANSACTIONS -->
+      <section id="transactions" class="content-section">
+        <h2>Transactions</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Txn ID</th>
+              <th>User</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T001</td>
+              <td>John Doe</td>
+              <td>$50</td>
+              <td>2025-11-09</td>
+              <td>Success</td>
+            </tr>
+            <tr>
+              <td>T002</td>
+              <td>Jane Smith</td>
+              <td>$30</td>
+              <td>2025-11-08</td>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ADVERTISEMENT -->
+      <section id="advertisement" class="content-section">
+        <h2>Advertisement</h2>
+        <div class="ads-section">
+          <div class="ad-card">
+            <img src="https://via.placeholder.com/300x150" alt="Ad" />
+            <p>Ad Title: Winter Offer</p>
+          </div>
+        </div>
+        <form class="ad-form">
+          <h3>Add New Advertisement</h3>
+          <input type="text" placeholder="Ad Title" required />
+          <input type="url" placeholder="Ad Link" required />
+          <input type="file" required />
+          <button type="submit">Add Advertisement</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal">
+      <div class="modal-content">
+        <button id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+        <h3>Biodata Details</h3>
+        <p><strong>Name:</strong> <span id="modalName"></span></p>
+        <p><strong>Age:</strong> 28</p>
+        <p><strong>Gender:</strong> Male</p>
+        <p><strong>Address:</strong> Dhaka, Bangladesh</p>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
