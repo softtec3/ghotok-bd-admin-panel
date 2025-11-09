@@ -13,6 +13,10 @@ try {
         }
         if ($stmt->affected_rows > 0) {
             header("Location: ./admin.php");
+        } else {
+            echo "<script>
+                alert('Failed to delete');
+            </script>";
         }
     }
 } catch (Exception $e) {

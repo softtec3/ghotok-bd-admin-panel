@@ -386,6 +386,9 @@ header {
   justify-content: center;
   margin-top: 20px;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 /* Responsive */
 @media (max-width: 900px) {
   #menuBtn {

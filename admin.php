@@ -5,6 +5,7 @@ require_once("./php/logout.php");
 include_once("./php/all_biodata.php");
 include_once("./php/delete_user.php");
 $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to change with real domain
+include_once("./php/change_bio_status.php");
 ?>
 
 <!DOCTYPE html>
@@ -93,6 +94,7 @@ $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to cha
         <thead>
           <tr>
             <th>ID</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Gender</th>
             <th>Age</th>
@@ -103,21 +105,33 @@ $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to cha
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>001</td>
-            <td>John Doe</td>
-            <td>Male</td>
-            <td>28</td>
-            <td>Married</td>
-            <td>Active</td>
+          <?php
+          if ($all_users && count($all_users) > 0) {
+            foreach ($all_users as $bio) {
+              $action_btn = ($bio["status"] == "active") ? "<a href='?inactive_bio={$bio["user_id"]}' class='status-btn inactive'>Inactive</a>" : " <a href='?active_bio={$bio["user_id"]}' class='status-btn active'>Active</a>";
+              echo "
+             <tr>
+            <td>{$bio["id"]}</td>
+            <td>{$bio["full_name"]}</td>
+            <td>{$bio["email"]}</td>
+            <td>{$bio["gender"]}</td>
+            <td>{$bio["age"]}</td>
+            <td class='capitalize'>{$bio["marital_status"]}</td>
+            <td class='capitalize'>{$bio["status"]}</td>
             <td>
-              <a href="#" class="status-btn active">Active</a>
-              <a href="#" class="status-btn inactive">Inactive</a>
+              $action_btn
             </td>
             <td>
-              <button class="view-btn" data-name="John Doe">View</button>
+              <button class='view-btn' data-name='John Doe'>View</button>
             </td>
           </tr>
+                
+                ";
+            }
+          }
+
+          ?>
+
         </tbody>
       </table>
     </section>
