@@ -6,6 +6,7 @@ include_once("./php/all_biodata.php");
 include_once("./php/delete_user.php");
 $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to change with real domain
 include_once("./php/change_bio_status.php");
+include_once("./php/single_bio.php");
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +123,7 @@ include_once("./php/change_bio_status.php");
               $action_btn
             </td>
             <td>
-              <button class='view-btn' data-name='John Doe'>View</button>
+              <a href='?view={$bio["user_id"]}' class='view-btn'>View</a>
             </td>
           </tr>
                 
@@ -204,120 +205,123 @@ include_once("./php/change_bio_status.php");
 
   <!-- MODAL -->
   <!-- PERSON DETAILS MODAL -->
-  <div id="modal">
-    <div class="modal-content">
-      <button id="closeModal" class="close-btn">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+  <?php if (isset($target_bio["user_id"]) && !empty($target_bio["user_id"])): ?>
+    <div id="modal">
+      <div class="modal-content">
+        <a href="./admin.php" id="closeModal" class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </a>
 
-      <div class="person-details">
-        <!-- Profile Header -->
-        <div class="profile-header">
-          <img
-            src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-            alt="Profile" />
-          <div class="profile-basic">
-            <h2>John Doe <span class="id">ID: 001</span></h2>
-            <p><i class="fas fa-map-marker-alt"></i> Dhanmondi, Dhaka</p>
+        <div class="person-details">
+          <!-- Profile Header -->
+          <div class="profile-header">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="Profile" />
+            <div class="profile-basic">
+              <h2><?php echo htmlspecialchars($target_bio["full_name"]) ?> <span class="id">ID: 001</span></h2>
+              <p><i class="fas fa-map-marker-alt"></i> Dhanmondi, Dhaka</p>
+            </div>
+          </div>
+
+          <div class="personDetailsLowerContainer">
+            <div class="pdlcleft">
+              <!-- Image Gallery -->
+              <div class="personImageGallery">
+                <div class="pigMain">
+                  <img
+                    id="mainImageProfile"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+                    alt="main image" />
+                </div>
+
+                <div class="pigsub">
+                  <img
+                    onclick="handleProfileImg(this)"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-olly-733872.jpg"
+                    alt="subImage" />
+                  <img
+                    onclick="handleProfileImg(this)"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-vinicius-wiesehofer-289347-1130626.jpg"
+                    alt="subImage" />
+                  <img
+                    onclick="handleProfileImg(this)"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-pixabay-247322.jpg"
+                    alt="subImage" />
+                </div>
+              </div>
+
+              <!-- Basic Details -->
+              <div class="info-section">
+                <h3><i class="fas fa-user"></i> Basic Details</h3>
+                <ul>
+                  <li><strong>Full Name:</strong> John Doe</li>
+                  <li><strong>Age:</strong> 28 Years</li>
+                  <li><strong>Height:</strong> 5'8"</li>
+                  <li><strong>Gender:</strong> Male</li>
+                  <li><strong>Marital Status:</strong> Single</li>
+                  <li>
+                    <strong>Father's Name:</strong> Abdur Rahman
+                    <span>(Alive)</span>
+                  </li>
+                  <li>
+                    <strong>Mother's Name:</strong> Fatema Begum
+                    <span>(Alive)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Professional Info -->
+              <div class="info-section">
+                <h3>
+                  <i class="fas fa-briefcase"></i> Professional Information
+                </h3>
+                <ul>
+                  <li><strong>Education:</strong> B.Sc in CSE</li>
+                  <li><strong>Profession:</strong> Software Engineer</li>
+                  <li><strong>Monthly Income:</strong> 50,000৳</li>
+                </ul>
+              </div>
+
+              <!-- Family Details -->
+              <div class="info-section">
+                <h3><i class="fas fa-users"></i> Family Details</h3>
+                <ul>
+                  <li><strong>Siblings:</strong> 2</li>
+                  <li><strong>Position Among Siblings:</strong> 1st</li>
+                </ul>
+              </div>
+
+              <!-- Quick Intro -->
+              <div class="info-section">
+                <h3><i class="fas fa-id-card"></i> Overview</h3>
+                <p>Name: John Doe, Age: 28 Years</p>
+                <p>Education: B.Sc in CSE | Profession: Software Engineer</p>
+                <p>Height: 5'8" | Skin Color: Fair</p>
+                <p>
+                  <strong>A Few Lines About John Doe:</strong> A hardworking,
+                  honest individual seeking a life partner.
+                </p>
+              </div>
+            </div>
+
+            <div class="pdlcright">
+              <div class="info-section">
+                <h3><i class="fas fa-phone"></i> Contact Details</h3>
+                <ul>
+                  <li><strong>Phone:</strong> +8801318195591</li>
+                  <li><strong>Email:</strong> johndoe@mail.com</li>
+                  <li><strong>Address:</strong> Dhanmondi, Dhaka</li>
+                  <li><strong>District:</strong> Dhaka</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="personDetailsLowerContainer">
-          <div class="pdlcleft">
-            <!-- Image Gallery -->
-            <div class="personImageGallery">
-              <div class="pigMain">
-                <img
-                  id="mainImageProfile"
-                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
-                  alt="main image" />
-              </div>
-
-              <div class="pigsub">
-                <img
-                  onclick="handleProfileImg(this)"
-                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-olly-733872.jpg"
-                  alt="subImage" />
-                <img
-                  onclick="handleProfileImg(this)"
-                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-vinicius-wiesehofer-289347-1130626.jpg"
-                  alt="subImage" />
-                <img
-                  onclick="handleProfileImg(this)"
-                  src="https://ghotok.soft-techtechnology.com/uploads/pexels-pixabay-247322.jpg"
-                  alt="subImage" />
-              </div>
-            </div>
-
-            <!-- Basic Details -->
-            <div class="info-section">
-              <h3><i class="fas fa-user"></i> Basic Details</h3>
-              <ul>
-                <li><strong>Full Name:</strong> John Doe</li>
-                <li><strong>Age:</strong> 28 Years</li>
-                <li><strong>Height:</strong> 5'8"</li>
-                <li><strong>Gender:</strong> Male</li>
-                <li><strong>Marital Status:</strong> Single</li>
-                <li>
-                  <strong>Father's Name:</strong> Abdur Rahman
-                  <span>(Alive)</span>
-                </li>
-                <li>
-                  <strong>Mother's Name:</strong> Fatema Begum
-                  <span>(Alive)</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Professional Info -->
-            <div class="info-section">
-              <h3>
-                <i class="fas fa-briefcase"></i> Professional Information
-              </h3>
-              <ul>
-                <li><strong>Education:</strong> B.Sc in CSE</li>
-                <li><strong>Profession:</strong> Software Engineer</li>
-                <li><strong>Monthly Income:</strong> 50,000৳</li>
-              </ul>
-            </div>
-
-            <!-- Family Details -->
-            <div class="info-section">
-              <h3><i class="fas fa-users"></i> Family Details</h3>
-              <ul>
-                <li><strong>Siblings:</strong> 2</li>
-                <li><strong>Position Among Siblings:</strong> 1st</li>
-              </ul>
-            </div>
-
-            <!-- Quick Intro -->
-            <div class="info-section">
-              <h3><i class="fas fa-id-card"></i> Overview</h3>
-              <p>Name: John Doe, Age: 28 Years</p>
-              <p>Education: B.Sc in CSE | Profession: Software Engineer</p>
-              <p>Height: 5'8" | Skin Color: Fair</p>
-              <p>
-                <strong>A Few Lines About John Doe:</strong> A hardworking,
-                honest individual seeking a life partner.
-              </p>
-            </div>
-          </div>
-
-          <div class="pdlcright">
-            <div class="info-section">
-              <h3><i class="fas fa-phone"></i> Contact Details</h3>
-              <ul>
-                <li><strong>Phone:</strong> +8801318195591</li>
-                <li><strong>Email:</strong> johndoe@mail.com</li>
-                <li><strong>Address:</strong> Dhanmondi, Dhaka</li>
-                <li><strong>District:</strong> Dhaka</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </div>
+  <?php endif; ?>
 
 
   <!-- script for delete user -->
@@ -342,6 +346,7 @@ include_once("./php/change_bio_status.php");
       });
     };
   </script>
+
   <script src="admin.js"></script>
 
 </body>
