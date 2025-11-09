@@ -1,5 +1,7 @@
 <?php
 require_once("./php/is_logged_in.php");
+require_once("./php/db_connect.php");
+require_once("./php/logout.php");
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +43,7 @@ require_once("./php/is_logged_in.php");
     <header>
       <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
       <h1>Admin Dashboard</h1>
+      <a href="?logout=true" class="status-btn inactive" style="max-width: 90px;">Logout</a>
     </header>
 
     <!-- USERS -->
