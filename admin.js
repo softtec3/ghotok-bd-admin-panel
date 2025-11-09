@@ -37,7 +37,7 @@ const modalName = document.getElementById("modalName");
 
 viewBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    modalName.textContent = btn.dataset.name;
+    // modalName.textContent = btn.dataset.name;
     modal.style.display = "flex";
   });
 });
@@ -45,3 +45,10 @@ closeModal.addEventListener("click", () => (modal.style.display = "none"));
 window.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
 });
+
+// image
+const mainImageProfile = document.getElementById("mainImageProfile");
+function handleProfileImg(target) {
+  const src = target.src;
+  mainImageProfile.src = src;
+}

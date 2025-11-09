@@ -157,11 +157,13 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th>Email</th>
               <th>Gender</th>
               <th>Age</th>
+              <th>Marital Status</th>
               <th>Status</th>
               <th>Action</th>
+              <th>View</th>
             </tr>
           </thead>
           <tbody>
@@ -170,19 +172,14 @@
               <td>John Doe</td>
               <td>Male</td>
               <td>28</td>
-              <td><a href="#" class="status-btn active">Active</a></td>
+              <td>Married</td>
+              <td>Active</td>
+              <td>
+                <a href="#" class="status-btn active">Active</a>
+                <a href="#" class="status-btn inactive">Inactive</a>
+              </td>
               <td>
                 <button class="view-btn" data-name="John Doe">View</button>
-              </td>
-            </tr>
-            <tr>
-              <td>002</td>
-              <td>Jane Smith</td>
-              <td>Female</td>
-              <td>25</td>
-              <td><a href="#" class="status-btn inactive">Inactive</a></td>
-              <td>
-                <button class="view-btn" data-name="Jane Smith">View</button>
               </td>
             </tr>
           </tbody>
@@ -241,14 +238,124 @@
     </main>
 
     <!-- MODAL -->
+    <!-- PERSON DETAILS MODAL -->
     <div id="modal">
       <div class="modal-content">
-        <button id="closeModal"><i class="fa-solid fa-xmark"></i></button>
-        <h3>Biodata Details</h3>
-        <p><strong>Name:</strong> <span id="modalName"></span></p>
-        <p><strong>Age:</strong> 28</p>
-        <p><strong>Gender:</strong> Male</p>
-        <p><strong>Address:</strong> Dhaka, Bangladesh</p>
+        <button id="closeModal" class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="person-details">
+          <!-- Profile Header -->
+          <div class="profile-header">
+            <img
+              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              alt="Profile"
+            />
+            <div class="profile-basic">
+              <h2>John Doe <span class="id">ID: 001</span></h2>
+              <p><i class="fas fa-map-marker-alt"></i> Dhanmondi, Dhaka</p>
+            </div>
+          </div>
+
+          <div class="personDetailsLowerContainer">
+            <div class="pdlcleft">
+              <!-- Image Gallery -->
+              <div class="personImageGallery">
+                <div class="pigMain">
+                  <img
+                    id="mainImageProfile"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+                    alt="main image"
+                  />
+                </div>
+
+                <div class="pigsub">
+                  <img
+                    onclick="handleProfileImg(this)"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-olly-733872.jpg"
+                    alt="subImage"
+                  />
+                  <img
+                    onclick="handleProfileImg(this)"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-vinicius-wiesehofer-289347-1130626.jpg"
+                    alt="subImage"
+                  />
+                  <img
+                    onclick="handleProfileImg(this)"
+                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-pixabay-247322.jpg"
+                    alt="subImage"
+                  />
+                </div>
+              </div>
+
+              <!-- Basic Details -->
+              <div class="info-section">
+                <h3><i class="fas fa-user"></i> Basic Details</h3>
+                <ul>
+                  <li><strong>Full Name:</strong> John Doe</li>
+                  <li><strong>Age:</strong> 28 Years</li>
+                  <li><strong>Height:</strong> 5'8"</li>
+                  <li><strong>Gender:</strong> Male</li>
+                  <li><strong>Marital Status:</strong> Single</li>
+                  <li>
+                    <strong>Father's Name:</strong> Abdur Rahman
+                    <span>(Alive)</span>
+                  </li>
+                  <li>
+                    <strong>Mother's Name:</strong> Fatema Begum
+                    <span>(Alive)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Professional Info -->
+              <div class="info-section">
+                <h3>
+                  <i class="fas fa-briefcase"></i> Professional Information
+                </h3>
+                <ul>
+                  <li><strong>Education:</strong> B.Sc in CSE</li>
+                  <li><strong>Profession:</strong> Software Engineer</li>
+                  <li><strong>Monthly Income:</strong> 50,000৳</li>
+                </ul>
+              </div>
+
+              <!-- Family Details -->
+              <div class="info-section">
+                <h3><i class="fas fa-users"></i> Family Details</h3>
+                <ul>
+                  <li><strong>Siblings:</strong> 2</li>
+                  <li><strong>Position Among Siblings:</strong> 1st</li>
+                </ul>
+              </div>
+
+              <!-- Quick Intro -->
+              <div class="info-section">
+                <h3><i class="fas fa-id-card"></i> Overview</h3>
+                <p>Name: John Doe, Age: 28 Years</p>
+                <p>Education: B.Sc in CSE | Profession: Software Engineer</p>
+                <p>Height: 5'8" | Skin Color: Fair</p>
+                <p>
+                  <strong>A Few Lines About John Doe:</strong> A hardworking,
+                  honest individual seeking a life partner.
+                </p>
+              </div>
+            </div>
+
+            <div class="pdlcright">
+              <div class="info-section">
+                <h3><i class="fas fa-phone"></i> Contact Details</h3>
+                <ul>
+                  <li><strong>Phone:</strong> +8801318195591</li>
+                  <li><strong>Email:</strong> johndoe@mail.com</li>
+                  <li><strong>Address:</strong> Dhanmondi, Dhaka</li>
+                  <li><strong>District:</strong> Dhaka</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
