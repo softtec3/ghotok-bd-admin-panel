@@ -236,11 +236,11 @@ include_once("./php/change_ad_status.php");
           <!-- Profile Header -->
           <div class="profile-header">
             <img
-              src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+              src="<?php echo $base_img_url . $target_bio["profile_picture"] ?>"
               alt="Profile" />
             <div class="profile-basic">
-              <h2><?php echo htmlspecialchars($target_bio["full_name"]) ?> <span class="id">ID: 001</span></h2>
-              <p><i class="fas fa-map-marker-alt"></i> Dhanmondi, Dhaka</p>
+              <h2><?php echo htmlspecialchars($target_bio["full_name"] ?? "") ?> <span class="id">ID: <?php echo htmlspecialchars($target_bio["id"] ?? "") ?></span></h2>
+              <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($target_bio["present_address"] ?? "") ?></p>
             </div>
           </div>
 
@@ -251,22 +251,22 @@ include_once("./php/change_ad_status.php");
                 <div class="pigMain">
                   <img
                     id="mainImageProfile"
-                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-moose-photos-170195-1036623.jpg"
+                    src="<?php echo $base_img_url . $target_bio["profile_picture"] ?>"
                     alt="main image" />
                 </div>
 
                 <div class="pigsub">
                   <img
                     onclick="handleProfileImg(this)"
-                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-olly-733872.jpg"
+                    src="<?php echo $base_img_url . $target_bio["other_img_one"] ?>"
                     alt="subImage" />
                   <img
                     onclick="handleProfileImg(this)"
-                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-vinicius-wiesehofer-289347-1130626.jpg"
+                    src="<?php echo $base_img_url . $target_bio["other_img_two"] ?>"
                     alt="subImage" />
                   <img
                     onclick="handleProfileImg(this)"
-                    src="https://ghotok.soft-techtechnology.com/uploads/pexels-pixabay-247322.jpg"
+                    src="<?php echo $base_img_url . $target_bio["other_img_three"] ?>"
                     alt="subImage" />
                 </div>
               </div>
@@ -275,18 +275,18 @@ include_once("./php/change_ad_status.php");
               <div class="info-section">
                 <h3><i class="fas fa-user"></i> Basic Details</h3>
                 <ul>
-                  <li><strong>Full Name:</strong> John Doe</li>
-                  <li><strong>Age:</strong> 28 Years</li>
-                  <li><strong>Height:</strong> 5'8"</li>
-                  <li><strong>Gender:</strong> Male</li>
-                  <li><strong>Marital Status:</strong> Single</li>
+                  <li><strong>Full Name:</strong> <?php echo htmlspecialchars($target_bio["full_name"] ?? "") ?></li>
+                  <li><strong>Age:</strong> <?php echo htmlspecialchars($target_bio["age"] ?? "") ?> Years</li>
+                  <li><strong>Height:</strong> <?php echo htmlspecialchars($target_bio["height"] ?? "") ?></li>
+                  <li><strong>Gender:</strong> <?php echo htmlspecialchars($target_bio["gender"] ?? "") ?></li>
+                  <li><strong>Marital Status:</strong> <?php echo htmlspecialchars($target_bio["marital_status"] ?? "") ?></li>
                   <li>
-                    <strong>Father's Name:</strong> Abdur Rahman
-                    <span>(Alive)</span>
+                    <strong>Father's Name:</strong> <?php echo htmlspecialchars($target_bio["fathers_name"]) ?>
+                    <span>(<?php echo htmlspecialchars($target_bio["fathers_status"] ?? "") ?>)</span>
                   </li>
                   <li>
-                    <strong>Mother's Name:</strong> Fatema Begum
-                    <span>(Alive)</span>
+                    <strong>Mother's Name:</strong> <?php echo htmlspecialchars($target_bio["mothers_name"] ?? "") ?>
+                    <span>(<?php echo htmlspecialchars($target_bio["mothers_status"] ?? "") ?>)</span>
                   </li>
                 </ul>
               </div>
@@ -297,9 +297,9 @@ include_once("./php/change_ad_status.php");
                   <i class="fas fa-briefcase"></i> Professional Information
                 </h3>
                 <ul>
-                  <li><strong>Education:</strong> B.Sc in CSE</li>
-                  <li><strong>Profession:</strong> Software Engineer</li>
-                  <li><strong>Monthly Income:</strong> 50,000৳</li>
+                  <li><strong>Education:</strong> <?php echo htmlspecialchars($target_bio["education"] ?? "") ?></li>
+                  <li><strong>Profession:</strong> <?php echo htmlspecialchars($target_bio["profession"] ?? "") ?></li>
+                  <li><strong>Monthly Income:</strong> <?php echo htmlspecialchars($target_bio["monthly_income"] ?? "") ?>৳</li>
                 </ul>
               </div>
 
@@ -307,20 +307,19 @@ include_once("./php/change_ad_status.php");
               <div class="info-section">
                 <h3><i class="fas fa-users"></i> Family Details</h3>
                 <ul>
-                  <li><strong>Siblings:</strong> 2</li>
-                  <li><strong>Position Among Siblings:</strong> 1st</li>
+                  <li><strong>Siblings:</strong> <?php echo htmlspecialchars($target_bio["siblings"] ?? "") ?></li>
+                  <li><strong>Position Among Siblings:</strong> <?php echo htmlspecialchars($target_bio["child_order"] ?? "") ?></li>
                 </ul>
               </div>
 
               <!-- Quick Intro -->
               <div class="info-section">
                 <h3><i class="fas fa-id-card"></i> Overview</h3>
-                <p>Name: John Doe, Age: 28 Years</p>
-                <p>Education: B.Sc in CSE | Profession: Software Engineer</p>
-                <p>Height: 5'8" | Skin Color: Fair</p>
+                <p>Name: <?php echo htmlspecialchars($target_bio["full_name"] ?? "") ?>, Age: <?php echo htmlspecialchars($target_bio["age"]) ?> Years</p>
+                <p>Education: <?php echo htmlspecialchars($target_bio["education"] ?? "") ?> | Profession: <?php echo htmlspecialchars($target_bio["profession"] ?? "") ?></p>
+                <p>Height: <?php echo htmlspecialchars($target_bio["height"] ?? "") ?> | Skin Color: <?php echo htmlspecialchars($target_bio["skin_color"] ?? "") ?></p>
                 <p>
-                  <strong>A Few Lines About John Doe:</strong> A hardworking,
-                  honest individual seeking a life partner.
+                  <strong>A Few Lines About John Doe:</strong> <?php echo htmlspecialchars($target_bio["about"]) ?>
                 </p>
               </div>
             </div>
@@ -329,10 +328,10 @@ include_once("./php/change_ad_status.php");
               <div class="info-section">
                 <h3><i class="fas fa-phone"></i> Contact Details</h3>
                 <ul>
-                  <li><strong>Phone:</strong> +8801318195591</li>
-                  <li><strong>Email:</strong> johndoe@mail.com</li>
-                  <li><strong>Address:</strong> Dhanmondi, Dhaka</li>
-                  <li><strong>District:</strong> Dhaka</li>
+                  <li><strong>Phone:</strong> <?php echo htmlspecialchars($target_bio["phone"] ?? "") ?></li>
+                  <li><strong>Email:</strong> <?php echo htmlspecialchars($target_bio["email"] ?? "") ?></li>
+                  <li><strong>Address:</strong> <?php echo htmlspecialchars($target_bio["present_address"] ?? "") ?></li>
+                  <li><strong>District:</strong> <?php echo htmlspecialchars($target_bio["district"] ?? "") ?></li>
                 </ul>
               </div>
             </div>
