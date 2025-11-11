@@ -75,6 +75,7 @@ include_once("./php/change_ad_status.php");
             alt='User' />
           <h3>{$user["full_name"]}</h3>
           <p><b>ID:</b> <span>{$user["id"]}</span></p>
+          <p><b>Connects:</b> <span>{$user["connects"]}</span></p>
           <p><b>District:</b> <span>{$user["district"]}</span></p>
           <p><b>Created:</b> <span>{$created_at}</span></p>
           <p><b>Email:</b> <span><a href='mailto:{$user["user_id"]}' style='color:black; text-decoration:none'>Email</a></span></p>
