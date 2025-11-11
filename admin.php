@@ -11,6 +11,7 @@ include_once("./php/single_bio.php");
 include_once("./php/all_transactions.php");
 include_once("./php/add_advertise.php");
 include_once("./php/all_advertise.php");
+include_once("./php/change_ad_status.php");
 ?>
 
 <!DOCTYPE html>
@@ -203,7 +204,7 @@ include_once("./php/all_advertise.php");
         if (isset($all_advertises) && count($all_advertises) > 0) {
           foreach ($all_advertises as $advertise) {
             $advertise_image = $base_img_url2 . $advertise["ad_image"];
-            $advertise_action_btn = ($advertise["status"] === "active") ? " <a href='ad_inactive={$advertise["id"]}' class='status-btn inactive'>Inactive</a>" : " <a href='ad_active={$advertise["id"]}' class='status-btn active'>Active</a>";
+            $advertise_action_btn = ($advertise["status"] === "active") ? " <a href='?ad_inactive={$advertise["id"]}' class='status-btn inactive'>Inactive</a>" : " <a href='?ad_active={$advertise["id"]}' class='status-btn active'>Active</a>";
             echo "<div class='ad-card'>
                 <a href='{$advertise["ad_link"]}' target='_blank'>
                   <img
