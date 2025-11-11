@@ -1,4 +1,5 @@
 <?php
+require_once("is_logged_in.php");
 require_once("db_connect.php");
 try {
     if (isset($_GET["delete_user"]) && $_GET["delete_user"] != "") {
