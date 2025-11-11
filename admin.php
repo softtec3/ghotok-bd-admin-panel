@@ -5,10 +5,12 @@ require_once("./php/logout.php");
 include_once("./php/all_biodata.php");
 include_once("./php/delete_user.php");
 $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to change with real domain
+$base_img_url2 = "http://localhost/"; //need to change with real domain
 include_once("./php/change_bio_status.php");
 include_once("./php/single_bio.php");
 include_once("./php/all_transactions.php");
 include_once("./php/add_advertise.php");
+include_once("./php/all_advertise.php");
 ?>
 
 <!DOCTYPE html>
@@ -197,26 +199,25 @@ include_once("./php/add_advertise.php");
 
       </form>
       <div class="ads-section">
-        <div class="ad-card">
-          <a href="">
-            <img
-              src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg"
-              alt="Ad" /></a>
-          <p>Ad Title: Winter Offer</p>
-          <div class="advertiseInactive">
-            <a href="#" class="status-btn inactive">Inactive</a>
-          </div>
-        </div>
-        <div class="ad-card">
-          <a href="">
-            <img
-              src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg"
-              alt="Ad" /></a>
-          <p>Ad Title: Winter Offer</p>
-          <div class="advertiseInactive">
-            <a href="#" class="status-btn inactive">Inactive</a>
-          </div>
-        </div>
+        <?php
+        if (isset($all_advertises) && count($all_advertises) > 0) {
+          foreach ($all_advertises as $advertise) {
+            $advertise_image = $base_img_url2 . $advertise["ad_image"];
+            $advertise_action_btn = ($advertise["status"] === "active") ? " <a href='ad_inactive={$advertise["id"]}' class='status-btn inactive'>Inactive</a>" : " <a href='ad_active={$advertise["id"]}' class='status-btn active'>Active</a>";
+            echo "<div class='ad-card'>
+                <a href='{$advertise["ad_link"]}' target='_blank'>
+                  <img
+                    src='$advertise_image'
+                    alt='Ad' /></a>
+                <p>Ad Title: {$advertise["ad_title"]}</p>
+                <p class='capitalize'>Ad Status: {$advertise["status"]}</p>
+                <div class='advertiseInactive'>
+                 $advertise_action_btn
+                </div>
+              </div>";
+          }
+        }
+        ?>
       </div>
     </section>
   </main>

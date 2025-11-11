@@ -34,10 +34,12 @@ try {
         $stmt = $conn->prepare("INSERT INTO advertisements(ad_title, ad_link, ad_image) VALUES (?,?,?)");
 
         if (!$stmt) {
+            $success =  "failed";
             throw new Exception("SQL failed: " . $conn->error);
         }
         $stmt->bind_param("sss", $ad_title, $ad_link, $ad_image);
         if (!$stmt->execute()) {
+            $success =  "failed";
             throw new Exception("Failed to insert: " . $stmt->error);
         }
         if ($stmt->insert_id) {

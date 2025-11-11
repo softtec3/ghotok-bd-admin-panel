@@ -184,16 +184,20 @@ header {
   margin-top: 20px;
 }
 .ad-card {
+  flex-basis: 300px;
   background: white;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   max-height: 400px;
+  overflow-y: auto;
 }
 .ad-card img {
   width: 100%;
+  height: 200px;
   border-radius: 6px;
+  object-fit: cover;
 }
 .ad-form {
   background: white;
