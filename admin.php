@@ -7,6 +7,7 @@ include_once("./php/delete_user.php");
 $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to change with real domain
 include_once("./php/change_bio_status.php");
 include_once("./php/single_bio.php");
+include_once("./php/all_transactions.php");
 ?>
 
 <!DOCTYPE html>
@@ -154,16 +155,23 @@ include_once("./php/single_bio.php");
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>338838</td>
-            <td>Profile</td>
-            <td>1</td>
-            <td>Amount</td>
-            <td>11/11/2025</td>
-            <td>Success</td>
-            <td>MV-441544</td>
-          </tr>
+          <?php
+          if (isset($all_transactions) && count($all_transactions) > 0) {
+            foreach ($all_transactions as $transaction) {
+              echo "<tr>
+                        <td>{$transaction["id"]}</td>
+                        <td>{$transaction["txn_id"]}</td>
+                        <td class='capitalize'>{$transaction["payment_for"]}</td>
+                        <td>{$transaction["interested_id"]}</td>
+                        <td>{$transaction["amount"]} TK</td>
+                        <td>{$transaction["txn_date"]}</td>
+                        <td class='capitalize'>{$transaction["status"]}</td>
+                        <td>{$transaction["merchant_invoice"]}</td>
+                      </tr>";
+            }
+          }
+          ?>
+
         </tbody>
       </table>
     </section>
