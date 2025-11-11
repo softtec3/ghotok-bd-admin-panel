@@ -38,6 +38,6 @@ try {
 } catch (mysqli_sql_exception $e) {
     $msg_error = $e->getMessage();
     echo "<script>
-    console.log('$msg_error')
+   console.log(\"$msg_error\");
     </script>";
 }

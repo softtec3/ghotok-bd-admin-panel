@@ -50,6 +50,6 @@ try {
 } catch (Exception $e) {
     $msg_error = $e->getMessage();
     echo "<script>
-    console.log('$msg_error');
+   console.log(\"$msg_error\");
     </script>";
 }
