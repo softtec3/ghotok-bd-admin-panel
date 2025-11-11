@@ -5,7 +5,7 @@ require_once("./php/logout.php");
 include_once("./php/all_biodata.php");
 include_once("./php/delete_user.php");
 $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to change with real domain
-$base_img_url2 = "http://localhost/"; //need to change with real domain
+$base_img_url2 = "http://admin.ghotok.soft-techtechnology.com/"; //need to change with real domain
 include_once("./php/change_bio_status.php");
 include_once("./php/single_bio.php");
 include_once("./php/all_transactions.php");
