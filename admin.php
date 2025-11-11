@@ -8,6 +8,7 @@ $base_img_url = "https://ghotok.soft-techtechnology.com/uploads/"; //need to cha
 include_once("./php/change_bio_status.php");
 include_once("./php/single_bio.php");
 include_once("./php/all_transactions.php");
+include_once("./php/add_advertise.php");
 ?>
 
 <!DOCTYPE html>
@@ -90,28 +91,29 @@ include_once("./php/all_transactions.php");
     </section>
 
     <!-- BIODATAS -->
-    <section id="biodatas" class="content-section">
-      <h2>All Biodatas</h2>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Marital Status</th>
-            <th>Status</th>
-            <th>Action</th>
-            <th>View</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          if ($all_users && count($all_users) > 0) {
-            foreach ($all_users as $bio) {
-              $action_btn = ($bio["status"] == "active") ? "<a href='?inactive_bio={$bio["user_id"]}' class='status-btn inactive'>Inactive</a>" : " <a href='?active_bio={$bio["user_id"]}' class='status-btn active'>Active</a>";
-              echo "
+    <div class="table-container">
+      <section id="biodatas" class="content-section">
+        <h2>All Biodatas</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Marital Status</th>
+              <th>Status</th>
+              <th>Action</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            if ($all_users && count($all_users) > 0) {
+              foreach ($all_users as $bio) {
+                $action_btn = ($bio["status"] == "active") ? "<a href='?inactive_bio={$bio["user_id"]}' class='status-btn inactive'>Inactive</a>" : " <a href='?active_bio={$bio["user_id"]}' class='status-btn active'>Active</a>";
+                echo "
              <tr>
             <td>{$bio["id"]}</td>
             <td>{$bio["full_name"]}</td>
@@ -129,36 +131,37 @@ include_once("./php/all_transactions.php");
           </tr>
                 
                 ";
+              }
             }
-          }
 
-          ?>
+            ?>
 
-        </tbody>
-      </table>
-    </section>
-
+          </tbody>
+        </table>
+      </section>
+    </div>
     <!-- TRANSACTIONS -->
     <section id="transactions" class="content-section">
       <h2>Transactions</h2>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>User ID</th>
-            <th>Txn ID</th>
-            <th>Payment For</th>
-            <th>Interested ID</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Merchant Invoice</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          if (isset($all_transactions) && count($all_transactions) > 0) {
-            foreach ($all_transactions as $transaction) {
-              echo "<tr>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Txn ID</th>
+              <th>Payment For</th>
+              <th>Interested ID</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Merchant Invoice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            if (isset($all_transactions) && count($all_transactions) > 0) {
+              foreach ($all_transactions as $transaction) {
+                echo "<tr>
                         <td>{$transaction["id"]}</td>
                         <td>{$transaction["txn_id"]}</td>
                         <td class='capitalize'>{$transaction["payment_for"]}</td>
@@ -168,23 +171,30 @@ include_once("./php/all_transactions.php");
                         <td class='capitalize'>{$transaction["status"]}</td>
                         <td>{$transaction["merchant_invoice"]}</td>
                       </tr>";
+              }
             }
-          }
-          ?>
+            ?>
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ADVERTISEMENT -->
     <section id="advertisement" class="content-section">
       <h2>Advertisement</h2>
-      <form class="ad-form">
+      <form action="" class="ad-form" method="post" enctype="multipart/form-data">
         <h3>Add New Advertisement</h3>
-        <input type="text" placeholder="Ad Title" required />
-        <input type="url" placeholder="Ad Link" required />
-        <input type="file" required />
+        <input type="text" name="ad_title" placeholder="Ad Title" required />
+        <input type="url" name="ad_link" placeholder="Ad Link" required />
+        <input type="file" name="ad_image" required />
         <button type="submit">Add Advertisement</button>
+        <p style="text-align: center; font-weight: bold;color:green">
+          <?php
+          echo htmlspecialchars($success);
+          ?>
+        </p>
+
       </form>
       <div class="ads-section">
         <div class="ad-card">
